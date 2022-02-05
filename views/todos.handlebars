@@ -1,0 +1,17 @@
+<h1>Welcome {{user.username}}</h1>
+<form>
+  <div class="mb-3">
+    <label for="todoField" class="form-label">Please Enter a todo</label>
+    <input type="text" class="form-control" id="todoField" aria-describedby="emailHelp">
+  </div>
+  <button type="submit" class="btn btn-primary" id="addTodoBtn">Submit</button>
+</form>
+<ul class="list-group">
+  {{#each userTodos as |todo| }}
+    {{#if todo.completed}}
+      <li class="list-group-item list-group-item-primary">{{todo.task}}</li>
+    {{else}}
+      <li class="list-group-item list-group-item-danger">{{todo.task}}</li>
+    {{/if}}
+  {{/each}}
+</ul>
