@@ -1,38 +1,37 @@
 const { Model, DataTypes, UUIDV4 } = require('sequelize');
 const sequelize = require('../config');
-class User extends Model {}
-User.init(
+class Patient extends Model {}
+Patient.init(
 	{
-		id: {
+		patientId: {
 			type: DataTypes.UUID,
 			defaultValue: UUIDV4,
 			primaryKey: true,
 		},
-		username: {
+		illness: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		email: {
+		hasBeenSeen: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
+		},
+		patientComments: {
 			type: DataTypes.STRING,
-			allowNull: false,
-			unique: true,
-			validate: {
-				isEmail: true,
+		},
+		doctorId: {
+			type: DataTypes.UUID,
+			references: {
+				model: 'doctor',
+				key: 'id',
 			}
 		},
-		password: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				len: [6]
-			}
-		}
 	},
 	{
 		sequelize,
 		timestamps: false,
 		freezeTableName: true,
-		modelName: 'user',
+		modelName: 'patient'
 	}
 );
-module.exports = User;
+module.exports = Patient;

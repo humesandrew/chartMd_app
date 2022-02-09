@@ -5,12 +5,12 @@ $(document).ready(function() {
 	const signupBtn = $('#signupBtn');
 	signupBtn.on('click', async function(event) {
 		event.preventDefault();
-		await $.post('/api/users/signup', {
+		await $.post('/api/doctors/signup', {
 			email: emailField.val(),
 			username: usernameField.val(),
 			password: passwordField.val(),
 		});
 
-		window.location.href = '/todos';
+		window.location.href = '/patients';
 	});
 });

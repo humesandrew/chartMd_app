@@ -1,13 +1,13 @@
-const Todo = require('./Todo');
-const User = require('./User');
-User.hasMany(Todo, {
-	foreignKey: 'userId',
+const Patient = require('./Patient');
+const Doctor = require('./Doctor');
+Doctor.hasMany(Patient, {
+	foreignKey: 'doctorId',
 	onDelete: 'CASCADE',
 });
-Todo.belongsTo(User, {
-	foreignKey: 'userId'
+Patient.belongsTo(Doctor, {
+	foreignKey: 'doctorId'
 });
 module.exports = {
-	Todo,
-	User,
+	Patient,
+	Doctor,
 }
