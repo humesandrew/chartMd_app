@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const apiRoutes = require('./apiRoutes');
-const { renderHomePage, loginView, signupView } = require('../controllers/userController');
-const { getAllTodos } = require('../controllers/todoController');
+const { renderHomePage, loginView, signupView } = require('../controllers/doctorController');
+const { getAllPatients } = require('../controllers/patientController');
 router.get('/', renderHomePage);
-router.get('/todos', getAllTodos);
+router.get('/patients', getAllPatients);
 router.get('/login', loginView);
 router.get('/signup', signupView);
 router.use('/api', apiRoutes);

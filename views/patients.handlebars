@@ -7,11 +7,11 @@
   <button type="submit" class="btn btn-primary" id="addTodoBtn">Submit</button>
 </form>
 <ul class="list-group">
-  {{#each userTodos as |todo| }}
-    {{#if todo.completed}}
-      <li class="list-group-item list-group-item-primary">{{todo.task}}</li>
+  {{#each doctorPatients as |patient| }}
+    {{#if patient.hasBeenSeen}}
+      <li class="list-group-item list-group-item-primary">{{patient.illness}}</li>
     {{else}}
-      <li class="list-group-item list-group-item-danger">{{todo.task}}</li>
+      <li class="list-group-item list-group-item-danger">{{patient.illness}}</li>
     {{/if}}
   {{/each}}
 </ul>

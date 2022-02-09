@@ -5,14 +5,14 @@ $(document).ready(function() {
 	const logoutBtn = $('#logout');
 	signinBtn.on('click', async function(event) {
 		event.preventDefault();
-		await $.post('/api/users/login', {
+		await $.post('/api/doctors/login', {
 			email: emailField.val().trim(),
 			password: passwordField.val().trim(),
 		});
-		window.location.href = '/todos';
+		window.location.href = '/patients';
 	});
 	logoutBtn.on('click', async function() {
-		await $.post('/api/users/logout');
+		await $.post('/api/doctors/logout');
 		window.location.href = '/';
 	});
 });
