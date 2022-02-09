@@ -8,6 +8,10 @@ Patient.init(
 			defaultValue: UUIDV4,
 			primaryKey: true,
 		},
+		patientName: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
 		illness: {
 			type: DataTypes.STRING,
 			allowNull: false,
