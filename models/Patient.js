@@ -20,7 +20,7 @@ Patient.init(
 			type: DataTypes.BOOLEAN,
 			defaultValue: false,
 		},
-		patientComments: {
+		doctorNotes: {
 			type: DataTypes.STRING,
 		},
 		doctorId: {

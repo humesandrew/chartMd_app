@@ -1,17 +1,25 @@
 <h1>Welcome {{user.username}}</h1>
 <form>
   <div class="mb-3">
-    <label for="todoField" class="form-label">Please Enter a todo</label>
-    <input type="text" class="form-control" id="todoField" aria-describedby="emailHelp">
+    <label for="patientNameField" class="form-label">Patient Name:</label>
+    <input type="text" class="form-control" id="patientNameField" aria-describedby="emailHelp">
   </div>
-  <button type="submit" class="btn btn-primary" id="addTodoBtn">Submit</button>
+  <div class="mb-3">
+    <label for="illnessField" class="form-label">Illness:</label>
+    <input type="text" class="form-control" id="illnessField" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="doctorNotesField" class="form-label">Doctor Notes:</label>
+    <input type="text" class="form-control" id="doctorNotesField" aria-describedby="emailHelp">
+  </div>
+  <button type="submit" class="btn btn-primary" id="addPatientBtn">Submit</button>
 </form>
 <ul class="list-group">
   {{#each doctorPatients as |patient| }}
     {{#if patient.hasBeenSeen}}
-      <li class="list-group-item list-group-item-primary">{{patient.illness}}</li>
+      <li class="list-group-item list-group-item-primary">{{patient.patientName}}: {{patient.illness}} - {{patient.doctorNotes}}</li>
     {{else}}
-      <li class="list-group-item list-group-item-danger">{{patient.illness}}</li>
+      <li class="list-group-item list-group-item-danger">{{patient.patientName}}: {{patient.illness}} - {{patient.doctorNotes}}</li>
     {{/if}}
   {{/each}}
 </ul>

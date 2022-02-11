@@ -18,16 +18,17 @@ module.exports = {
 			res.json(e);
 		}
 	},
-	// createPatient: async (req, res) => {
-	// 	const { patientComments, illness } = req.body;
-	// 	try {
-	// 		const newTodo = await Todo.create({
-	// 			task,
-	// 			userId: req.session.user.id,
-	// 		});
-	// 		res.json({ newTodo });
-	// 	} catch (e) {
-	// 		res.json(e);
-	// 	}
-	// },
+	createPatient: async (req, res) => {
+		const { patientName, illness, doctorNotes } = req.body;
+		try {
+			const newPatient = await Patient.create({
+				patientName,
+				illness,
+				doctorNotes,
+			});
+			res.json({ newPatient });
+		} catch (e) {
+			res.json(e);
+		}
+	},
 }
