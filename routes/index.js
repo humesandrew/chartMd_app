@@ -2,7 +2,7 @@ const router = require('express').Router();
 const apiRoutes = require('./apiRoutes');
 const {
     Patient,
-    // Doctor,
+    Doctor,
 } = require('./../models');
 const { renderHomePage, loginView, signupView } = require('../controllers/doctorController');
 const { getAllPatients } = require('../controllers/patientController');
