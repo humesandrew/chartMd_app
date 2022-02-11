@@ -17,22 +17,22 @@ router.get('/seed', async (req, res) => {
         {
             patientName: 'Joe Montana',
             illness: 'CTE',
-            patientComments: 'Steve Young sucks!!'
+            doctorNotes: 'Steve Young sucks!!'
         },
         {
             patientName: 'John Elway',
             illness: 'pidgeon toed',
-            patientComments: 'Dan Marino sucks!!'
+            doctorNotes: 'Dan Marino sucks!!'
         },
         {
             patientName: 'Peyton Manning',
             illness: 'Huge Forehead',
-            patientComments: 'Chicken Parm you taste so good!!!'
+            doctorNotes: 'Chicken Parm you taste so good!!!'
         },
         {
             patientName: 'Troy Aikman',
             illness: 'small hands',
-            patientComments: 'Emmitt Smith is the only reason I am in the hall of fame!!'
+            doctorNotes: 'Emmitt Smith is the only reason I am in the hall of fame!!'
         },
     ];
 
