@@ -1,25 +1,57 @@
-<h1>Welcome {{user.username}}</h1>
-<form>
-  <div class="mb-3">
-    <label for="patientNameField" class="form-label">Patient Name:</label>
-    <input type="text" class="form-control" id="patientNameField" aria-describedby="emailHelp">
+<div class="container">
+  <div class="card-header mt-5">Welcome {{doctor.username}}</div>
+  <div class="card-body">
+    <form>
+      <div class="mb-3">
+        <label for="patientNameField" class="form-label">Patient Name:</label>
+        <input type="text" class="form-control" id="patientNameField" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="illnessField" class="form-label">Illness:</label>
+        <input type="text" class="form-control" id="illnessField" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+            <label for="doctorNotesField" class="form-label">Notes:</label>
+            <input type="text" class="form-control" id="doctorNotesField" aria-describedby="emailHelp">
+          </div>
+      <button type="submit" class="btn btn-primary d-grid col-2 mx-auto" id="addPatientBtn">Add Patient</button>
+    </form>
   </div>
-  <div class="mb-3">
-    <label for="illnessField" class="form-label">Illness:</label>
-    <input type="text" class="form-control" id="illnessField" aria-describedby="emailHelp">
-  </div>
-  <div class="mb-3">
-    <label for="doctorNotesField" class="form-label">Doctor Notes:</label>
-    <input type="text" class="form-control" id="doctorNotesField" aria-describedby="emailHelp">
-  </div>
-  <button type="submit" class="btn btn-primary" id="addPatientBtn">Submit</button>
-</form>
-<ul class="list-group">
-  {{#each doctorPatients as |patient| }}
+</div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-evenly">
+    {{#each doctorPatients as |patient| }}
     {{#if patient.hasBeenSeen}}
-      <li class="list-group-item list-group-item-primary">{{patient.patientName}}: {{patient.illness}} - {{patient.doctorNotes}}</li>
+    <div class="card text-dark bg-success mb-3 col-4" style="max-width: 18rem;">
+      <div class="card-header">{{patient.patientName}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{patient.illness}}</h5>
+        <p class="card-text">{{patient.doctorNotes}}</p>
+
+        {{!-- <div class="container">
+          
+        </div> --}}
+      </div>
+      <button type="submit" class="btn btn-primary d-grid col-12 mb-2 mx-auto" id="addNotesBtn">Add Notes</button>
+    </div>
     {{else}}
-      <li class="list-group-item list-group-item-danger">{{patient.patientName}}: {{patient.illness}} - {{patient.doctorNotes}}</li>
+    <div class="card text-dark bg-danger mb-3 col-4" style="max-width: 18rem;">
+      <div class="card-header">{{patient.patientName}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{patient.illness}}</h5>
+        <p class="card-text">{{patient.doctorNotes}}</p>
+        {{!-- <div class="container">
+          <div class="mb-3 row align-item-end">
+            <label for="doctorNotesField" class="form-label">Notes:</label>
+            <input type="text" class="form-control" id="doctorNotesField" aria-describedby="emailHelp">
+          </div>
+        </div> --}}
+      </div>
+      <button type="submit" class="btn btn-primary d-grid col-12 mb-2 mx-auto" id="addNotesBtn">Add Notes</button>
+    </div>
     {{/if}}
-  {{/each}}
-</ul>
+    {{/each}}
+  </div>
+</div>
