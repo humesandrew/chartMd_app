@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card-header mt-5">Welcome {{doctor.username}}</div>
+  <div class="card-header mt-5">Welcome {{Doctor.username}}</div>
   <div class="card-body">
     <form>
       <div class="mb-3">
@@ -30,11 +30,9 @@
         <h5 class="card-title">{{patient.illness}}</h5>
         <p class="card-text">{{patient.doctorNotes}}</p>
 
-        {{!-- <div class="container">
-          
-        </div> --}}
+       
       </div>
-      <button type="submit" class="btn btn-primary d-grid col-12 mb-2 mx-auto" id="addNotesBtn">Add Notes</button>
+      <button type="submit" class="btn btn-primary d-grid col-12 mb-2 mx-auto" id="addNotesBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Notes</button>
     </div>
     {{else}}
     <div class="card text-dark bg-danger mb-3 col-4" style="max-width: 18rem;">
@@ -42,14 +40,41 @@
       <div class="card-body">
         <h5 class="card-title">{{patient.illness}}</h5>
         <p class="card-text">{{patient.doctorNotes}}</p>
-        {{!-- <div class="container">
-          <div class="mb-3 row align-item-end">
-            <label for="doctorNotesField" class="form-label">Notes:</label>
-            <input type="text" class="form-control" id="doctorNotesField" aria-describedby="emailHelp">
-          </div>
-        </div> --}}
+
+
+        {{!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="patientNameModal">  </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <button type="submit" class="btn btn-primary d-grid col-12 mb-2 mx-auto" id="addNotesBtn">Add Notes</button>
+      <div class="modal-body">
+       
+        <form>
+         
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Notes:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="addNotesBtn">Add Notes</button>
+      </div>
+    </div>
+  </div>
+</div> --}}
+
+
+
+      </div>
+      <button type="submit" class="btn btn-primary d-grid col-12 mb-2 mx-auto" id="addNotesBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Add Notes</button>
+  
+  
+   
+   
     </div>
     {{/if}}
     {{/each}}
