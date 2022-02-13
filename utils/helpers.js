@@ -1,4 +1,4 @@
 module.exports = {
 	toUpperCase: string => string.toUpperCase(),
-	// toLowerCase: string => string.toLowerCase(),
+	toLowerCase: string => string.toLowerCase(),
 }

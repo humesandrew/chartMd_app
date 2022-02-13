@@ -37,7 +37,7 @@ module.exports = {
 
 		console.log(req.body);
 		try {
-			//	first find the user with the given email address
+			//	first find the user with the given username
 			const doctorData = await Doctor.findOne({
 				where: {
 					username: req.body.username
@@ -45,16 +45,13 @@ module.exports = {
 			});
 			const doctorFound = doctorData.get({ plain: true });
 
-			console.log(doctorFound);
 			//	check if the password from the form is the same password as the user found
 			//	with the given email
 			//	if that is true, save the user found in req.session.user
-			console.log(doctorFound.password, 72);
-			console.log(req.body.password, 73);
 			if (doctorFound.password === req.body.password) {
 				req.session.save(() => {
 					req.session.loggedIn = true;
-					req.session.user = doctorFound;
+					req.session.doctor = doctorFound;
 					res.json({ success: true });
 				});
 			}

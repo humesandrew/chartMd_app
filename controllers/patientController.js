@@ -31,4 +31,21 @@ module.exports = {
 			res.json(e);
 		}
 	},
+	getPatientbyId: async (req, res) => {
+		const { patientId } = req.params;
+		const patient = await Patient.findByPk(patientId);
+		res.json(patient);
+	},
+	updatePatientbyId: async (req, res) => {
+		const { patientId } = req.params;
+		console.log(patientId, req.body)
+		const patient = await Patient.updatePatientbyId({
+			patientId,
+			patientName: req.body.patientName,
+			illness: req.body.illness,
+			doctorNotes: req.body.doctorNotes,
+		})
+		res.json(patient)
+	}
+	
 }

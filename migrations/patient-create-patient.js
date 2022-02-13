@@ -5,13 +5,13 @@ module.exports = {
         {
             patientId: UUIDV4(),
             patientName: 'Joe Montana',
-            illness: 'CTE',
+            illness: 'Finger Blister',
             doctorNotes: 'Steve Young sucks!!'
         },
         {
             patientId: UUIDV4(),
             patientName: 'John Elway',
-            illness: 'pidgeon toed',
+            illness: 'Pidgeon Toed',
             doctorNotes: 'Dan Marino sucks!!'
         },
         {
@@ -23,7 +23,7 @@ module.exports = {
         {
             patientId: UUIDV4(),
             patientName: 'Troy Aikman',
-            illness: 'small hands',
+            illness: 'Small Hands',
             doctorNotes: 'Emmitt Smith is the only reason I am in the hall of fame!!'
         },
       ]);
