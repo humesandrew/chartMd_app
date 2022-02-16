@@ -3,9 +3,15 @@ const {
 } = require('../models');
 module.exports = {
 	createDoctor: async (req, res) => {
-		const { username, email, password } = req.body;
-		if (!username || !email || !password ) {
-			return res.status(400).json({ error: 'You must provide a username, email, and password'});
+		const {
+			username,
+			email,
+			password
+		} = req.body;
+		if (!username || !email || !password) {
+			return res.status(400).json({
+				error: 'You must provide a username, email, and password'
+			});
 		}
 		try {
 			const doctor = await Doctor.create({
@@ -18,41 +24,41 @@ module.exports = {
 			res.json(e);
 		}
 	},
-//	getting doctors
+
 	renderHomePage: async (req, res) => {
 		res.render('homepage');
 	},
-	getDoctorById: async (req, res) => {
-		try {
-			const doctorData = await Doctor.findByPk(req.params.doctorId);
-			const doctor = doctorData.get({ plain: true });
-			res.render('singleDoctor', {
-				doctor
-			});
-		} catch (e) {
-			res.json(e);
-		}
-	},
+	// getDoctorById: async (req, res) => {
+	// 	try {
+	// 		const doctorData = await Doctor.findByPk(req.params.doctorId);
+	// 		const doctor = doctorData.get({ plain: true });
+	// 		// res.render('singleDoctor', {
+	// 		// 	doctor
+	// 		// });
+	// 	} catch (e) {
+	// 		res.json(e);
+	// 	}
+	// },
 	login: async (req, res) => {
 
 		console.log(req.body);
 		try {
-			//	first find the user with the given username
 			const doctorData = await Doctor.findOne({
 				where: {
 					username: req.body.username
 				}
 			});
-			const doctorFound = doctorData.get({ plain: true });
+			const doctorFound = doctorData.get({
+				plain: true
+			});
 
-			//	check if the password from the form is the same password as the user found
-			//	with the given email
-			//	if that is true, save the user found in req.session.user
 			if (doctorFound.password === req.body.password) {
 				req.session.save(() => {
 					req.session.loggedIn = true;
 					req.session.doctor = doctorFound;
-					res.json({ success: true });
+					res.json({
+						success: true
+					});
 				});
 			}
 		} catch (e) {
@@ -61,14 +67,20 @@ module.exports = {
 		}
 	},
 	signupHandler: async (req, res) => {
-		const { email, username, password } = req.body;
+		const {
+			email,
+			username,
+			password
+		} = req.body;
 		try {
 			const createdDoctor = await Doctor.create({
 				email,
 				username,
 				password,
 			});
-			const doctor = createdDoctor.get({ plain: true });
+			const doctor = createdDoctor.get({
+				plain: true
+			});
 			req.session.save(() => {
 				req.session.loggedIn = true;
 				req.session.doctor = doctor;
@@ -92,7 +104,9 @@ module.exports = {
 	},
 	logout: (req, res) => {
 		req.session.destroy(() => {
-			res.send({ status: true });
+			res.send({
+				status: true
+			});
 		});
 	},
 }

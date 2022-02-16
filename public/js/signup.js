@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	const emailField = $('#emailField');
 	const usernameField = $('#usernameField');
 	const passwordField = $('#passwordField');
 	const signupBtn = $('#signupBtn');
-	signupBtn.on('click', async function(event) {
+	signupBtn.on('click', async function (event) {
 		event.preventDefault();
 		await $.post('/api/doctors/signup', {
 			email: emailField.val(),

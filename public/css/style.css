@@ -5,20 +5,27 @@
     --secondarycolor: rgb(228, 151, 52);
     --boldcolor: rgb(43, 72, 126);
 }
+
 body {
     background-color: var(--primarycolor);
     font-family: var(--bodyFont);
     color: var(--boldcolor);
 }
+
 .navbar {
     background-color: var(--boldcolor);
 }
+
 .nav-link {
     color: var(--primarycolor);
     margin-right: 20px;
     font-size: 24px;
-
 }
+
+.nav-link:hover {
+    color: var(--secondarycolor)
+}
+
 #logout {
     background-color: var(--primarycolor);
     color: var(--boldcolor);
@@ -27,6 +34,7 @@ body {
     width: 100px;
 
 }
+
 #chartMd {
     font-family: var(--headerFont);
     color: var(--secondarycolor);
@@ -34,6 +42,7 @@ body {
     font-size: 56px;
     margin-left: 50px;
 }
+
 #welcomeId {
     font-weight: bold;
     font-size: 68px;
@@ -42,12 +51,14 @@ body {
     margin-top: 100px;
 
 }
+
 #welcomeMsg {
     font-size: 24px;
     margin: 100px;
     font-family: var(--bodyFont);
 
 }
+
 .welcomeHeader {
     background-color: var(--boldcolor);
     color: var(--secondarycolor);
@@ -56,21 +67,29 @@ body {
     text-align: center;
     margin-top: 20px;
 }
+
 .patientCard {
     background-color: var(--boldcolor);
     color: var(--primarycolor);
     font-family: var(--bodyFont);
 }
+
 .card-header {
     font-size: 24px;
     text-align: center;
     font-family: var(--headerFont);
 }
+
 .btn {
     background-color: var(--boldcolor);
     border-color: var(--boldcolor);
 }
+
 #addNotesBtn {
     background-color: var(--secondarycolor);
     border-color: var(--secondarycolor);
+}
+#newNoteId {
+    width: 100%;
+    height: 100px;
 }
