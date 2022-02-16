@@ -36,12 +36,13 @@ $(document).ready(function() {
 				type: 'PUT',
 				url: '/api/patients/' + patientId,
 				contentType: 'application/json',
-				body: JSON.stringify({
+				data: JSON.stringify({
 					patientName: $('#pm-patientName').text(),
 					patientIllness: $('#pm-patientIllness').text(),
 					doctorNotes: $('#newNoteid').val(),
 				}),
-			})
+		})
+		window.location.reload();
 	});	
 });
 

@@ -3,6 +3,6 @@ const { createPatient, getPatientbyId, updatePatientbyId } = require('../../../c
 // /api/patient
 router.post('/', createPatient);
 router.get('/:patientId', getPatientbyId);
-router.patch('/:patientId', updatePatientbyId);
+router.put('/:patientId', updatePatientbyId);
 module.exports = router;
 
