@@ -5,11 +5,7 @@ module.exports = {
 			return res.redirect('/login');
 		}
 		try {
-			const doctorPatientData = await Patient.findAll({
-				// where: {
-				// 	doctorId: req.session.doctor.id,
-				// }
-			});
+			const doctorPatientData = await Patient.findAll();
 			res.render('patients', {
 				doctorPatients: doctorPatientData.map(doctorPatient => doctorPatient.get({ plain: true })),
 				doctor: req.session.doctor,
@@ -37,15 +33,26 @@ module.exports = {
 		res.json(patient);
 	},
 	updatePatientbyId: async (req, res) => {
-		const { patientId } = req.params;
-		console.log(patientId, req.body)
-		const patient = await Patient.updatePatientbyId({
-			patientId,
-			patientName: req.body.patientName,
-			illness: req.body.illness,
-			doctorNotes: req.body.doctorNotes,
-		})
-		res.json(patient)
+		try {
+			const { patientId } = req.params;
+			console.log(patientId, req.body)
+			const patient = await Patient.update(
+				{
+					...req.body,
+				},
+				{
+					where: {
+						patientId,
+					}
+				}
+			)
+			console.log(patient);
+			res.json(patient)
+		} catch (error) {
+			console.log(error);
+			res.json(error)
+		}
+		
 	}
 	
 }

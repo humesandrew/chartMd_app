@@ -71,7 +71,7 @@ module.exports = {
 			const doctor = createdDoctor.get({ plain: true });
 			req.session.save(() => {
 				req.session.loggedIn = true;
-				req.session.user = doctor;
+				req.session.doctor = doctor;
 				res.redirect('/patients');
 			});
 		} catch (e) {
