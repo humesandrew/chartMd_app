@@ -1,0 +1,76 @@
+:root {
+    --headerFont: 'Abril Fatface', cursive;
+    --bodyFont: 'Archivo Narrow', sans-serif;
+    --primarycolor: rgb(241, 238, 202);
+    --secondarycolor: rgb(228, 151, 52);
+    --boldcolor: rgb(43, 72, 126);
+}
+body {
+    background-color: var(--primarycolor);
+    font-family: var(--bodyFont);
+    color: var(--boldcolor);
+}
+.navbar {
+    background-color: var(--boldcolor);
+}
+.nav-link {
+    color: var(--primarycolor);
+    margin-right: 20px;
+    font-size: 24px;
+
+}
+#logout {
+    background-color: var(--primarycolor);
+    color: var(--boldcolor);
+    font-size: 24px;
+    height: 50px;
+    width: 100px;
+
+}
+#chartMd {
+    font-family: var(--headerFont);
+    color: var(--secondarycolor);
+    background-color: var(--primaryColor);
+    font-size: 56px;
+    margin-left: 50px;
+}
+#welcomeId {
+    font-weight: bold;
+    font-size: 68px;
+    color: var(--boldcolor);
+    text-align: center;
+    margin-top: 100px;
+
+}
+#welcomeMsg {
+    font-size: 24px;
+    margin: 100px;
+    font-family: var(--bodyFont);
+
+}
+.welcomeHeader {
+    background-color: var(--boldcolor);
+    color: var(--secondarycolor);
+    font-family: var(--headerFont);
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+.patientCard {
+    background-color: var(--boldcolor);
+    color: var(--primarycolor);
+    font-family: var(--bodyFont);
+}
+.card-header {
+    font-size: 24px;
+    text-align: center;
+    font-family: var(--headerFont);
+}
+.btn {
+    background-color: var(--boldcolor);
+    border-color: var(--boldcolor);
+}
+#addNotesBtn {
+    background-color: var(--secondarycolor);
+    border-color: var(--secondarycolor);
+}

@@ -3,7 +3,8 @@ $(document).ready(function() {
     const illnessField = $('#illnessField');
     const doctorNotesField = $('#doctorNotesField');
 	const addPatientBtn = $("#addPatientBtn");
-	const addNotesBtn = $("#addNotesBtn");
+	const addNotesBtn = $(".addNotes");
+	const saveNotesBtn = $("#saveNotesBtn");
 
 	addPatientBtn.on('click', async function(event) {
 		event.preventDefault();
@@ -19,17 +20,29 @@ $(document).ready(function() {
 
 	addNotesBtn.on('click', async function(event) {
 		event.preventDefault();
-		await $.patch('/api/patients', {
-			patientName: patientNameField.val(),
-            illness: illnessField.val(),
-            doctorNotes: doctorNotesField.val(),
-		});
-		
-		
-		window.location.reload();
-	})
+		const patientId = $(this).attr('data-id');
+		$.getJSON('/api/patients/' + patientId, async function(data){
+			console.log(data);
+			$('#pm-patientName').html(data.patientName);
+			$('#pm-patientIllness').html(data.illness);
+			$('#saveNotesBtn').attr('data-id', data.patientId);
+		})
+	});
 
-	
+	saveNotesBtn.on('click', async function(event) {
+		const patientId = $(this).attr('data-id')
+		console.log(patientId);
+		await $.ajax({
+				type: 'PUT',
+				url: '/api/patients/' + patientId,
+				contentType: 'application/json',
+				body: JSON.stringify({
+					patientName: $('#pm-patientName').text(),
+					patientIllness: $('#pm-patientIllness').text(),
+					doctorNotes: $('#newNoteid').val(),
+				}),
+			})
+	});	
 });
 
 
