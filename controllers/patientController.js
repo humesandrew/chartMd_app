@@ -6,9 +6,9 @@ module.exports = {
 		}
 		try {
 			const doctorPatientData = await Patient.findAll({
-				where: {
-					doctorId: req.session.doctor.id,
-				}
+				// where: {
+				// 	doctorId: req.session.doctor.id,
+				// }
 			});
 			res.render('patients', {
 				doctorPatients: doctorPatientData.map(doctorPatient => doctorPatient.get({ plain: true })),
