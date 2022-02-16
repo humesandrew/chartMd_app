@@ -4,8 +4,14 @@ const {
     Patient,
     Doctor,
 } = require('./../models');
-const { renderHomePage, loginView, signupView } = require('../controllers/doctorController');
-const { getAllPatients } = require('../controllers/patientController');
+const {
+    renderHomePage,
+    loginView,
+    signupView
+} = require('../controllers/doctorController');
+const {
+    getAllPatients
+} = require('../controllers/patientController');
 router.get('/', renderHomePage);
 router.get('/patients', getAllPatients);
 router.get('/login', loginView);
