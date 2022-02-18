@@ -27,4 +27,10 @@
 
   [Click for deployed project on Heroku.](https://chartmd.herokuapp.com/)
 
-  [Click to email.](mailto:humes.andrew@gmail.com)
+  [Email Andy Humes](mailto:humes.andrew@gmail.com)
+
+  [Email Ian Li](mailto:ian.li1023@gmail.com)
+
+  [Email Austin Morrow](mailto:morrow.austin5@gmail.com)
+  
+  [Email Stuart Wood](mailto:stuartwood2010@hotmail.com)
